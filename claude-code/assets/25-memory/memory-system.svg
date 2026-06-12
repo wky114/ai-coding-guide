@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#60a5fa"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">两套记忆并行，最终都汇入新会话</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">你手写的 CLAUDE.md 与 Claude 自己写的自动记忆，走两条通路，最后合流进上下文窗口</text>
+
+  <!-- ============================================================ -->
+  <!-- 左区：你手写（手动记忆） / 右区：Claude 自己写（自动记忆）   -->
+  <!-- ============================================================ -->
+
+  <!-- 左区边界 -->
+  <rect x="40" y="86" width="468" height="380" rx="12" fill="none" stroke="#22d3ee" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="56" y="108" fill="#22d3ee" font-size="11" font-weight="600">通路 A · 你手写（手动记忆）</text>
+
+  <!-- 右区边界 -->
+  <rect x="612" y="86" width="468" height="380" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="628" y="108" fill="#34d399" font-size="11" font-weight="600">通路 B · Claude 自己写（自动记忆）</text>
+
+  <!-- ===================== 左区节点 ===================== -->
+  <!-- A1：CLAUDE.md（项目守则） -->
+  <rect x="84" y="132" width="380" height="64" rx="8" fill="#0f172a"/>
+  <rect x="84" y="132" width="380" height="64" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="274" y="160" fill="white" font-size="13" font-weight="700" text-anchor="middle">CLAUDE.md（项目守则）</text>
+  <text x="274" y="180" fill="#94a3b8" font-size="9.5" text-anchor="middle">你亲手写下的规矩，你说了算</text>
+
+  <!-- A2：全量加载 -->
+  <rect x="124" y="252" width="300" height="64" rx="8" fill="#0f172a"/>
+  <rect x="124" y="252" width="300" height="64" rx="8" fill="rgba(8,51,68,0.28)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="274" y="280" fill="white" font-size="12" font-weight="600" text-anchor="middle">全量加载，多长都进</text>
+  <text x="274" y="299" fill="#94a3b8" font-size="9.5" text-anchor="middle">整份原样塞进上下文，不裁剪</text>
+
+  <!-- 左区竖向箭头 A1 → A2 -->
+  <path d="M 274 196 L 274 250" fill="none" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+
+  <!-- A3：适用场景（与右侧 /memory 同高，平衡两列重量） -->
+  <rect x="84" y="376" width="380" height="56" rx="8" fill="#0f172a"/>
+  <rect x="84" y="376" width="380" height="56" rx="8" fill="rgba(8,51,68,0.22)" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="274" y="400" fill="#22d3ee" font-size="11" font-weight="600" text-anchor="middle">适用：长期守则、强约束</text>
+  <text x="274" y="419" fill="#94a3b8" font-size="9.5" text-anchor="middle">每次必看的规矩——但越写越占台面</text>
+
+  <!-- 左区竖向箭头 A2 → A3 -->
+  <path d="M 274 316 L 274 374" fill="none" stroke="#22d3ee" stroke-width="2" stroke-opacity="0.7" marker-end="url(#arrow-cyan)"/>
+
+  <!-- ===================== 右区节点 ===================== -->
+  <!-- B1：MEMORY.md（自动记忆） -->
+  <rect x="656" y="132" width="380" height="64" rx="8" fill="#0f172a"/>
+  <rect x="656" y="132" width="380" height="64" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="846" y="160" fill="white" font-size="13" font-weight="700" text-anchor="middle">MEMORY.md（Claude 自己写）</text>
+  <text x="846" y="180" fill="#94a3b8" font-size="9.5" text-anchor="middle">边干边记：构建命令 / 调试心得 / 偏好</text>
+
+  <!-- B2：开局只读前段 -->
+  <rect x="628" y="252" width="206" height="84" rx="8" fill="#0f172a"/>
+  <rect x="628" y="252" width="206" height="84" rx="8" fill="rgba(6,78,59,0.28)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="731" y="280" fill="white" font-size="11.5" font-weight="600" text-anchor="middle">开局只读回前段</text>
+  <text x="731" y="300" fill="#34d399" font-size="10" text-anchor="middle">前 200 行 / 25KB</text>
+  <text x="731" y="319" fill="#94a3b8" font-size="9" text-anchor="middle">不整份灌，省台面</text>
+
+  <!-- B3：主题文件按需读 -->
+  <rect x="858" y="252" width="206" height="84" rx="8" fill="#0f172a"/>
+  <rect x="858" y="252" width="206" height="84" rx="8" fill="rgba(6,78,59,0.28)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="961" y="280" fill="white" font-size="11.5" font-weight="600" text-anchor="middle">主题文件按需读</text>
+  <text x="961" y="300" fill="#34d399" font-size="10" text-anchor="middle">debugging.md</text>
+  <text x="961" y="319" fill="#94a3b8" font-size="9" text-anchor="middle">用到了才翻进来</text>
+
+  <!-- 右区竖向箭头 B1 → B2 / B3 -->
+  <path d="M 846 196 L 846 218 L 731 218 L 731 250" fill="none" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+  <path d="M 846 196 L 846 218 L 961 218 L 961 250" fill="none" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+  <!-- B2 / B3 → /memory（自动记忆这套都在 /memory 管控之下） -->
+  <path d="M 731 336 L 731 356 L 846 356 L 846 374" fill="none" stroke="#34d399" stroke-width="1.6" stroke-opacity="0.7" marker-end="url(#arrow-emerald)"/>
+  <path d="M 961 336 L 961 356 L 846 356 L 846 374" fill="none" stroke="#34d399" stroke-width="1.6" stroke-opacity="0.7" marker-end="url(#arrow-emerald)"/>
+
+  <!-- B4：/memory 管理（accent / 基础设施色） -->
+  <rect x="628" y="376" width="436" height="56" rx="8" fill="#0f172a"/>
+  <rect x="628" y="376" width="436" height="56" rx="8" fill="rgba(120,53,15,0.28)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="846" y="400" fill="#fbbf24" font-size="12" font-weight="700" text-anchor="middle">/memory</text>
+  <text x="846" y="420" fill="#94a3b8" font-size="9.5" text-anchor="middle">审计 · 编辑 · 开关，自动记忆的方向盘在你手里</text>
+
+  <!-- ============================================================ -->
+  <!-- 合流区：两条通路汇入「新会话的上下文窗口」                  -->
+  <!-- ============================================================ -->
+
+  <!-- 上下文窗口（highlight / 蓝，当前活跃） -->
+  <rect x="310" y="556" width="500" height="92" rx="10" fill="#0f172a"/>
+  <rect x="310" y="556" width="500" height="92" rx="10" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="2"/>
+  <text x="560" y="592" fill="white" font-size="14" font-weight="700" text-anchor="middle">新会话的上下文窗口</text>
+  <text x="560" y="616" fill="#cbd5e1" font-size="10" text-anchor="middle">开局两条记忆都在场：手写守则 + 自动记忆</text>
+  <text x="560" y="635" fill="#94a3b8" font-size="9" text-anchor="middle">Claude 一上来就知道你的规矩，也记得自己上次摸到的门道</text>
+
+  <!-- 汇流箭头：左通路 A3 → 上下文 -->
+  <path d="M 274 432 L 274 506 L 430 506 L 430 554" fill="none" stroke="#22d3ee" stroke-width="2.2" marker-end="url(#arrow-cyan)"/>
+  <rect x="214" y="470" width="120" height="22" rx="11" fill="#0f172a"/>
+  <text x="274" y="485" fill="#22d3ee" font-size="10" font-weight="600" text-anchor="middle">汇入 ↓</text>
+
+  <!-- 汇流箭头：右通路（B2/B3/B4 经过 /memory 下沉）→ 上下文 -->
+  <path d="M 846 432 L 846 506 L 690 506 L 690 554" fill="none" stroke="#34d399" stroke-width="2.2" marker-end="url(#arrow-emerald)"/>
+  <rect x="786" y="470" width="120" height="22" rx="11" fill="#0f172a"/>
+  <text x="846" y="485" fill="#34d399" font-size="10" font-weight="600" text-anchor="middle">汇入 ↓</text>
+
+  <!-- 中间合流提示 -->
+  <text x="560" y="500" fill="#475569" font-size="9.5" font-weight="600" text-anchor="middle">两条通路，同一个上下文</text>
+
+  <!-- 底部一句话 -->
+  <text x="40" y="676" fill="#64748b" font-size="9.5">一句话：CLAUDE.md 是你立的规矩、全量进；自动记忆是 Claude 攒的经验、按需进——两边最后都落到同一张工作台。</text>
+</svg>

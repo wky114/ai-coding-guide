@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">Claude Code 安全的分层防护</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">从最里的权限规则到最外的独立虚拟机，越往外隔离越强、信任要求越低</text>
+
+  <!-- 左侧「信任要求」纵向标尺 -->
+  <text x="38" y="120" fill="#fb7185" font-size="10" font-weight="600">信任要求高</text>
+  <line x1="60" y1="135" x2="60" y2="520" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="38" y="540" fill="#34d399" font-size="10" font-weight="600">信任要求低</text>
+
+  <!-- 右侧「隔离强度」纵向标尺 -->
+  <text x="1010" y="120" fill="#fb7185" font-size="10" font-weight="600">隔离最弱</text>
+  <line x1="1060" y1="135" x2="1060" y2="520" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="1010" y="540" fill="#34d399" font-size="10" font-weight="600">隔离最强</text>
+
+  <!-- ============================================================ -->
+  <!-- 五层同心嵌套：层 5（最外）→ 层 1（最里），居中 cx=560     -->
+  <!-- ============================================================ -->
+
+  <!-- 层 5：独立虚拟机 / 网页版云端（最外、玫红→其实最强隔离用绿色更准；这里用「外强内弱」配色：外层绿） -->
+  <rect x="120" y="100" width="880" height="450" rx="14" fill="#0f172a"/>
+  <rect x="120" y="100" width="880" height="450" rx="14" fill="rgba(6,78,59,0.18)" stroke="#34d399" stroke-width="2"/>
+  <text x="140" y="124" fill="#34d399" font-size="12" font-weight="700">⑤ 独立虚拟机 / 网页版云端</text>
+  <text x="140" y="140" fill="#94a3b8" font-size="9">内核级分离，对付完全不可信代码；用完即焚</text>
+
+  <!-- 层 4：dev container / 自定义容器 -->
+  <rect x="180" y="158" width="760" height="338" rx="12" fill="#0f172a"/>
+  <rect x="180" y="158" width="760" height="338" rx="12" fill="rgba(120,53,15,0.16)" stroke="#fbbf24" stroke-width="2"/>
+  <text x="200" y="182" fill="#fbbf24" font-size="12" font-weight="700">④ dev container / 自定义容器</text>
+  <text x="200" y="198" fill="#94a3b8" font-size="9">连文件工具、MCP、Hook 一起隔离在容器里</text>
+
+  <!-- 层 3：Bash 沙箱 -->
+  <rect x="240" y="216" width="640" height="222" rx="10" fill="#0f172a"/>
+  <rect x="240" y="216" width="640" height="222" rx="10" fill="rgba(8,51,68,0.32)" stroke="#22d3ee" stroke-width="2"/>
+  <text x="260" y="240" fill="#22d3ee" font-size="12" font-weight="700">③ Bash 沙箱（OS 级）</text>
+  <text x="260" y="256" fill="#94a3b8" font-size="9">操作系统强制，把 Bash 子进程焊在文件 / 网络边界里</text>
+
+  <!-- 层 2：内置断路器 -->
+  <rect x="300" y="274" width="520" height="108" rx="9" fill="#0f172a"/>
+  <rect x="300" y="274" width="520" height="108" rx="9" fill="rgba(251,146,60,0.16)" stroke="#fb923c" stroke-width="2"/>
+  <text x="320" y="298" fill="#fb923c" font-size="12" font-weight="700">② 内置断路器</text>
+  <text x="320" y="314" fill="#94a3b8" font-size="9">删根 / 家目录拦截、root 拒启全裸奔，你不配也有</text>
+
+  <!-- 层 1：权限规则（最里） -->
+  <rect x="360" y="328" width="400" height="40" rx="8" fill="#0f172a"/>
+  <rect x="360" y="328" width="400" height="40" rx="8" fill="rgba(136,19,55,0.32)" stroke="#fb7185" stroke-width="2"/>
+  <text x="560" y="353" fill="#fb7185" font-size="12" font-weight="700" text-anchor="middle">① 权限规则（工具层软约束）</text>
+
+  <!-- 右下图例：内 vs 外 -->
+  <text x="700" y="586" fill="#64748b" font-size="9" text-anchor="end">最里：纯软件约束，挡得住「Claude 想干的事」</text>
+  <text x="1000" y="586" fill="#64748b" font-size="9" text-anchor="end">最外：物理 / 内核隔离，连进程实际能碰的都焊死</text>
+
+  <!-- 底部一句话 -->
+  <text x="120" y="586" fill="#64748b" font-size="9">越不信任的代码，越要往外加码：单层不够就叠下一层。</text>
+</svg>

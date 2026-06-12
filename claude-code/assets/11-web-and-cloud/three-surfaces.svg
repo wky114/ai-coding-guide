@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">一个会话，三个入口</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">本地 / 网页 / 手机，围着同一个会话转</text>
+
+  <!-- ============ 连线（先画，垫在节点下面） ============ -->
+  <!-- 本地终端（左） → 中心 -->
+  <line x1="282" y1="232" x2="356" y2="232" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+  <!-- 浏览器网页版（右上） → 中心 -->
+  <line x1="592" y1="150" x2="520" y2="206" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <!-- 手机（右下） → 中心 -->
+  <line x1="610" y1="318" x2="520" y2="258" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- ============ 中心：同一个会话（蓝色胶囊） ============ -->
+  <rect x="356" y="188" width="172" height="88" rx="44" fill="#0f172a"/>
+  <rect x="356" y="188" width="172" height="88" rx="44" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="2"/>
+  <text x="442" y="222" fill="white" font-size="14" font-weight="700" text-anchor="middle">同一个会话</text>
+  <text x="442" y="243" fill="#cbd5e1" font-size="10" text-anchor="middle">历史 · 上下文 · 进度</text>
+  <text x="442" y="258" fill="#60a5fa" font-size="9" text-anchor="middle">换哪个入口都能续上</text>
+
+  <!-- ============ 本地终端（左 · 绿色） ============ -->
+  <rect x="118" y="196" width="164" height="72" rx="6" fill="#0f172a"/>
+  <rect x="118" y="196" width="164" height="72" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="200" y="222" fill="white" font-size="13" font-weight="600" text-anchor="middle">本地终端</text>
+  <text x="200" y="241" fill="#94a3b8" font-size="9" text-anchor="middle">装在你电脑上的命令行</text>
+  <text x="200" y="256" fill="#34d399" font-size="9" text-anchor="middle">代码在你本机跑</text>
+
+  <!-- ============ 浏览器网页版（右上 · 青色） ============ -->
+  <rect x="596" y="114" width="180" height="72" rx="6" fill="#0f172a"/>
+  <rect x="596" y="114" width="180" height="72" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="686" y="140" fill="white" font-size="13" font-weight="600" text-anchor="middle">浏览器网页版</text>
+  <text x="686" y="159" fill="#94a3b8" font-size="9" text-anchor="middle">打开网页就能用，免装</text>
+  <text x="686" y="174" fill="#22d3ee" font-size="9" text-anchor="middle">代码在云端沙箱跑</text>
+
+  <!-- ============ 手机（右下 · 紫色） ============ -->
+  <rect x="596" y="284" width="180" height="72" rx="6" fill="#0f172a"/>
+  <rect x="596" y="284" width="180" height="72" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="686" y="310" fill="white" font-size="13" font-weight="600" text-anchor="middle">手机</text>
+  <text x="686" y="329" fill="#94a3b8" font-size="9" text-anchor="middle">手机 App，揣兜里就能开</text>
+  <text x="686" y="344" fill="#a78bfa" font-size="9" text-anchor="middle">远程续接、随时看</text>
+
+  <!-- ============ 底部图例 ============ -->
+  <text x="26" y="412" fill="#64748b" font-size="9">三个入口共用一份会话：本机不在身边，换网页或手机也能接着上一轮继续。</text>
+</svg>

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="30" y="40" fill="white" font-size="16" font-weight="700">一个请求是怎么跑到 DeepSeek 又回来的</text>
+  <text x="30" y="59" fill="#94a3b8" font-size="10">环境变量只改「寄到哪 + 验身份」，Claude Code 这个壳全程不变</text>
+
+  <!-- ===== Lifelines (draw first, behind everything) ===== -->
+  <line x1="95"  y1="120" x2="95"  y2="560" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="290" y1="120" x2="290" y2="560" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="510" y1="120" x2="510" y2="560" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="690" y1="120" x2="690" y2="560" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ===== Message arrows (behind masking rects of actors, but actor boxes are at top so fine) ===== -->
+  <!-- 1. 你 → Claude Code -->
+  <line x1="95" y1="160" x2="284" y2="160" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="182" y="152" fill="#e2e8f0" font-size="9" text-anchor="middle">敲下指令</text>
+
+  <!-- 2. Claude Code → 兼容接口 (outbound, with env-var note) -->
+  <line x1="290" y1="250" x2="504" y2="250" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="400" y="242" fill="#e2e8f0" font-size="9" text-anchor="middle">打包成 Anthropic 协议请求</text>
+
+  <!-- 3. 兼容接口 → DeepSeek 模型 -->
+  <line x1="510" y1="330" x2="684" y2="330" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="600" y="322" fill="#e2e8f0" font-size="9" text-anchor="middle">转交计算</text>
+
+  <!-- 4. DeepSeek 模型 → 兼容接口 (return) -->
+  <line x1="690" y1="400" x2="516" y2="400" stroke="#64748b" stroke-width="1" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="600" y="392" fill="#94a3b8" font-size="8" text-anchor="middle" font-style="italic">生成结果</text>
+
+  <!-- 5. 兼容接口 → Claude Code (return) -->
+  <line x1="510" y1="460" x2="296" y2="460" stroke="#64748b" stroke-width="1" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="400" y="452" fill="#94a3b8" font-size="8" text-anchor="middle" font-style="italic">按 Anthropic 格式回包</text>
+
+  <!-- 6. Claude Code → 你 (return) -->
+  <line x1="290" y1="520" x2="101" y2="520" stroke="#64748b" stroke-width="1" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="190" y="512" fill="#94a3b8" font-size="8" text-anchor="middle" font-style="italic">结果显示在终端</text>
+
+  <!-- ===== Activation bars ===== -->
+  <!-- Claude Code: active from msg1 to msg6 -->
+  <rect x="285" y="160" width="10" height="360" rx="2" fill="rgba(8,51,68,0.6)" stroke="#22d3ee" stroke-width="1"/>
+  <!-- 兼容接口: active from msg2 to msg5 -->
+  <rect x="505" y="250" width="10" height="210" rx="2" fill="rgba(6,78,59,0.6)" stroke="#34d399" stroke-width="1"/>
+  <!-- DeepSeek 模型: active from msg3 to msg4 -->
+  <rect x="685" y="330" width="10" height="70" rx="2" fill="rgba(76,29,149,0.6)" stroke="#a78bfa" stroke-width="1"/>
+
+  <!-- ===== Env-var transformation note (on the outbound Claude→接口 leg) ===== -->
+  <rect x="312" y="178" width="172" height="56" rx="6" fill="#0f172a"/>
+  <rect x="312" y="178" width="172" height="56" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="398" y="197" fill="#fbbf24" font-size="9" font-weight="600" text-anchor="middle">环境变量在这里改写</text>
+  <text x="322" y="213" fill="#e2e8f0" font-size="8.5">BASE_URL → 收件地址改 DeepSeek</text>
+  <text x="322" y="227" fill="#e2e8f0" font-size="8.5">AUTH_TOKEN → 加 Bearer 验身份</text>
+
+  <!-- ===== Actor boxes (drawn last so they sit on top of lifelines) ===== -->
+  <!-- 你 -->
+  <rect x="30" y="118" width="130" height="46" rx="6" fill="#0f172a"/>
+  <rect x="30" y="118" width="130" height="46" rx="6" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="95" y="140" fill="white" font-size="11" font-weight="600" text-anchor="middle">你</text>
+  <text x="95" y="155" fill="#94a3b8" font-size="8" text-anchor="middle">终端里下指令</text>
+
+  <!-- Claude Code -->
+  <rect x="222" y="118" width="136" height="46" rx="6" fill="#0f172a"/>
+  <rect x="222" y="118" width="136" height="46" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="290" y="140" fill="white" font-size="11" font-weight="600" text-anchor="middle">Claude Code</text>
+  <text x="290" y="155" fill="#94a3b8" font-size="8" text-anchor="middle">壳 · 全程不变</text>
+
+  <!-- DeepSeek 兼容接口 -->
+  <rect x="438" y="118" width="144" height="46" rx="6" fill="#0f172a"/>
+  <rect x="438" y="118" width="144" height="46" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="510" y="140" fill="white" font-size="11" font-weight="600" text-anchor="middle">DeepSeek 兼容接口</text>
+  <text x="510" y="155" fill="#94a3b8" font-size="8" text-anchor="middle">/anthropic 端点</text>
+
+  <!-- DeepSeek 模型 -->
+  <rect x="626" y="118" width="128" height="46" rx="6" fill="#0f172a"/>
+  <rect x="626" y="118" width="128" height="46" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="690" y="140" fill="white" font-size="11" font-weight="600" text-anchor="middle">DeepSeek 模型</text>
+  <text x="690" y="155" fill="#94a3b8" font-size="8" text-anchor="middle">真正算的「发动机」</text>
+
+  <!-- ===== Phase dividers / labels on far left ===== -->
+  <text x="30" y="252" fill="#34d399" font-size="9" font-weight="600">寄出 ↓</text>
+  <text x="30" y="403" fill="#fb7185" font-size="9" font-weight="600">原路返回 ↑</text>
+  <line x1="30" y1="372" x2="730" y2="372" stroke="#475569" stroke-width="0.8" stroke-dasharray="3,5"/>
+
+  <!-- ===== Legend ===== -->
+  <line x1="430" y1="585" x2="455" y2="585" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="460" y="588" fill="#94a3b8" font-size="8">请求（寄出）</text>
+  <line x1="560" y1="585" x2="585" y2="585" stroke="#64748b" stroke-width="1" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="590" y="588" fill="#94a3b8" font-size="8">结果（返回）</text>
+</svg>

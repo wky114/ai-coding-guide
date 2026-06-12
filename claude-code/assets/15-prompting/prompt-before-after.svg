@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">同一个需求，两种问法</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">差的不是 Claude，是你怎么说</text>
+
+  <!-- 中间分隔线 -->
+  <line x1="460" y1="80" x2="460" y2="520" stroke="#334155" stroke-width="1" stroke-dasharray="6,5"/>
+
+  <!-- ============ 左栏：烂提问（玫红） ============ -->
+  <!-- 栏头标签 -->
+  <rect x="40" y="80" width="200" height="28" rx="6" fill="#0f172a"/>
+  <rect x="40" y="80" width="200" height="28" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="60" y="99" fill="#fb7185" font-size="13" font-weight="700">✗ 烂提问</text>
+
+  <!-- 模糊指令框 -->
+  <rect x="40" y="130" width="380" height="58" rx="6" fill="#0f172a"/>
+  <rect x="40" y="130" width="380" height="58" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="60" y="155" fill="#64748b" font-size="9">你输入</text>
+  <text x="60" y="176" fill="white" font-size="13" font-weight="600">帮我改下 average 函数</text>
+
+  <!-- 箭头：指令 → Claude -->
+  <line x1="230" y1="190" x2="230" y2="226" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+
+  <!-- Claude 一脸问号 -->
+  <rect x="150" y="230" width="160" height="74" rx="6" fill="#0f172a"/>
+  <rect x="150" y="230" width="160" height="74" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="230" cy="258" r="13" fill="none" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="230" y="263" fill="#fb7185" font-size="15" font-weight="700" text-anchor="middle">?</text>
+  <text x="230" y="290" fill="white" font-size="12" font-weight="600" text-anchor="middle">Claude 一脸懵</text>
+
+  <!-- 三个疑问 -->
+  <rect x="40" y="338" width="380" height="30" rx="6" fill="#0f172a"/>
+  <rect x="40" y="338" width="380" height="30" rx="6" fill="rgba(136,19,55,0.2)" stroke="#fb7185" stroke-width="1"/>
+  <text x="60" y="358" fill="#fda4af" font-size="11">改哪个范围？</text>
+
+  <rect x="40" y="378" width="380" height="30" rx="6" fill="#0f172a"/>
+  <rect x="40" y="378" width="380" height="30" rx="6" fill="rgba(136,19,55,0.2)" stroke="#fb7185" stroke-width="1"/>
+  <text x="60" y="398" fill="#fda4af" font-size="11">改成啥样？</text>
+
+  <rect x="40" y="418" width="380" height="30" rx="6" fill="#0f172a"/>
+  <rect x="40" y="418" width="380" height="30" rx="6" fill="rgba(136,19,55,0.2)" stroke="#fb7185" stroke-width="1"/>
+  <text x="60" y="438" fill="#fda4af" font-size="11">怎么算成功？</text>
+
+  <!-- 左栏底注 -->
+  <text x="40" y="480" fill="#64748b" font-size="9">话没说清 = 来回追问，或者改错地方</text>
+
+  <!-- ============ 右栏：好提问（绿色） ============ -->
+  <!-- 栏头标签 -->
+  <rect x="500" y="80" width="200" height="28" rx="6" fill="#0f172a"/>
+  <rect x="500" y="80" width="200" height="28" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="520" y="99" fill="#34d399" font-size="13" font-weight="700">✓ 好提问</text>
+
+  <!-- 三件套 -->
+  <rect x="500" y="124" width="380" height="30" rx="6" fill="#0f172a"/>
+  <rect x="500" y="124" width="380" height="30" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="520" y="144" fill="white" font-size="11" font-weight="600">具体范围：算空列表时别崩</text>
+
+  <rect x="500" y="160" width="380" height="30" rx="6" fill="#0f172a"/>
+  <rect x="500" y="160" width="380" height="30" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="520" y="180" fill="white" font-size="11" font-weight="600">给上下文：@utils/stats.py</text>
+
+  <rect x="500" y="196" width="380" height="30" rx="6" fill="#0f172a"/>
+  <rect x="500" y="196" width="380" height="30" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="520" y="216" fill="white" font-size="11" font-weight="600">验收标准：跑通 test_stats</text>
+
+  <!-- 箭头：三件套 → Claude -->
+  <line x1="690" y1="226" x2="690" y2="262" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+  <!-- Claude 精准命中 -->
+  <rect x="600" y="266" width="180" height="74" rx="6" fill="#0f172a"/>
+  <rect x="600" y="266" width="180" height="74" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <circle cx="690" cy="294" r="13" fill="none" stroke="#34d399" stroke-width="1.5"/>
+  <text x="690" y="300" fill="#34d399" font-size="14" font-weight="700" text-anchor="middle">✓</text>
+  <text x="690" y="326" fill="white" font-size="12" font-weight="600" text-anchor="middle">Claude 精准命中</text>
+
+  <!-- 跑测试通过 -->
+  <rect x="560" y="378" width="260" height="44" rx="6" fill="#0f172a"/>
+  <rect x="560" y="378" width="260" height="44" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="2"/>
+  <text x="690" y="398" fill="#34d399" font-size="13" font-weight="700" text-anchor="middle">✓ 跑测试通过</text>
+  <text x="690" y="414" fill="#94a3b8" font-size="9" text-anchor="middle">改对地方，一次到位</text>
+
+  <!-- 右栏底注 -->
+  <text x="500" y="480" fill="#64748b" font-size="9">范围 + 上下文 + 验收，三样齐了就不用返工</text>
+
+  <!-- ============ 底部一句话总结 ============ -->
+  <text x="26" y="540" fill="#64748b" font-size="9">同样一句「改 average」，模糊问法让 Claude 猜；说清「改哪、改成啥、怎么验」，它就能一把改对。</text>
+</svg>

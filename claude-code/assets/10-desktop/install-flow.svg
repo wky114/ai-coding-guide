@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 884">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="30" y="40" fill="white" font-size="16" font-weight="700">装好桌面 app，跑通第一个会话</text>
+  <text x="30" y="60" fill="#94a3b8" font-size="10">从下载到发出第一条指令，中间两道关：付费订阅、Windows 装 Git</text>
+
+  <!-- ============ ARROWS (drawn first, under boxes) ============ -->
+  <!-- Start → 登录 -->
+  <line x1="270" y1="124" x2="270" y2="156" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- 登录 → 付费决策 -->
+  <line x1="270" y1="216" x2="270" y2="256" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- 付费决策 是 → 点 Code -->
+  <line x1="270" y1="342" x2="270" y2="382" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- 付费决策 否 → 升级（向右，rose 虚线） -->
+  <line x1="332" y1="300" x2="438" y2="300" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-rose)"/>
+  <!-- 点 Code → Windows 决策 -->
+  <line x1="270" y1="442" x2="270" y2="462" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Windows 决策 否 → 选 Local（向下） -->
+  <line x1="270" y1="548" x2="270" y2="588" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Windows 决策 是 → 装 Git（向右，amber 虚线） -->
+  <line x1="332" y1="506" x2="438" y2="506" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-amber)"/>
+  <!-- 装 Git 重启后 回流到「选 Local」（amber 虚线，从底部经中缝绕回，不穿 Linux 框） -->
+  <path d="M 538,538 V 562 H 404 V 618 H 372" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-amber)"/>
+  <text x="410" y="578" fill="#fbbf24" font-size="8.5" text-anchor="start">重启后继续</text>
+  <!-- 选 Local → 发指令 -->
+  <line x1="270" y1="648" x2="270" y2="688" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+  <!-- 发指令 → 审阅 diff -->
+  <line x1="270" y1="746" x2="270" y2="786" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+  <!-- ============ MASK + BOX layer ============ -->
+
+  <!-- 下载安装 (start, blue pill) -->
+  <rect x="170" y="78" width="200" height="46" rx="23" fill="#0f172a"/>
+  <rect x="170" y="78" width="200" height="46" rx="23" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="270" y="101" fill="white" font-size="12" font-weight="600" text-anchor="middle">下载并安装</text>
+  <text x="270" y="116" fill="#94a3b8" font-size="8.5" text-anchor="middle">mac 拿 Universal · Win 拿 exe/ARM64</text>
+
+  <!-- 登录 (cyan) -->
+  <rect x="170" y="156" width="200" height="60" rx="6" fill="#0f172a"/>
+  <rect x="170" y="156" width="200" height="60" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="270" y="182" fill="white" font-size="12" font-weight="600" text-anchor="middle">登录 Anthropic 账号</text>
+  <text x="270" y="200" fill="#94a3b8" font-size="9" text-anchor="middle">启动 app 后用账号登录</text>
+
+  <!-- 决策：付费订阅？ (amber diamond) -->
+  <polygon points="270,258 332,300 270,342 208,300" fill="#0f172a"/>
+  <polygon points="270,258 332,300 270,342 208,300" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="270" y="296" fill="white" font-size="10.5" font-weight="600" text-anchor="middle">有付费订阅？</text>
+  <text x="270" y="311" fill="#94a3b8" font-size="8" text-anchor="middle">Pro / Max / Team</text>
+  <text x="252" y="360" fill="#34d399" font-size="9" text-anchor="end">是</text>
+
+  <!-- 点 Code 选项卡 (cyan) -->
+  <rect x="170" y="382" width="200" height="60" rx="6" fill="#0f172a"/>
+  <rect x="170" y="382" width="200" height="60" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="270" y="408" fill="white" font-size="12" font-weight="600" text-anchor="middle">点顶部中间 Code 选项卡</text>
+  <text x="270" y="426" fill="#94a3b8" font-size="9" text-anchor="middle">不是 Chat / 不是 Cowork</text>
+
+  <!-- 决策：Windows？ (amber diamond) -->
+  <polygon points="270,464 332,506 270,548 208,506" fill="#0f172a"/>
+  <polygon points="270,464 332,506 270,548 208,506" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="270" y="503" fill="white" font-size="10.5" font-weight="600" text-anchor="middle">系统是</text>
+  <text x="270" y="517" fill="white" font-size="10.5" font-weight="600" text-anchor="middle">Windows？</text>
+  <text x="252" y="566" fill="#34d399" font-size="9" text-anchor="end">否 (macOS)</text>
+
+  <!-- 选 Local + 文件夹 (emerald) -->
+  <rect x="170" y="588" width="200" height="60" rx="6" fill="#0f172a"/>
+  <rect x="170" y="588" width="200" height="60" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="270" y="614" fill="white" font-size="12" font-weight="600" text-anchor="middle">选 Local + 项目文件夹</text>
+  <text x="270" y="632" fill="#94a3b8" font-size="9" text-anchor="middle">挑个熟悉的小项目练手</text>
+
+  <!-- 发第一条指令 (emerald) -->
+  <rect x="170" y="688" width="200" height="58" rx="6" fill="#0f172a"/>
+  <rect x="170" y="688" width="200" height="58" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="270" y="713" fill="white" font-size="12" font-weight="600" text-anchor="middle">发第一条指令</text>
+  <text x="270" y="731" fill="#94a3b8" font-size="9" text-anchor="middle">如 Find a TODO and fix it</text>
+
+  <!-- 审阅 diff → 接受 (violet, end) -->
+  <rect x="170" y="786" width="200" height="58" rx="6" fill="#0f172a"/>
+  <rect x="170" y="786" width="200" height="58" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="270" y="811" fill="white" font-size="12" font-weight="600" text-anchor="middle">审阅 diff → 接受 ✓</text>
+  <text x="270" y="829" fill="#94a3b8" font-size="9" text-anchor="middle">点接受前磁盘文件不会被动</text>
+
+  <!-- ===== Right branch boxes ===== -->
+
+  <!-- 否 → 升级订阅 (rose, 终止支路) -->
+  <rect x="438" y="274" width="200" height="52" rx="6" fill="#0f172a"/>
+  <rect x="438" y="274" width="200" height="52" rx="6" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="538" y="298" fill="white" font-size="11" font-weight="600" text-anchor="middle">免费号点 Code 跳升级页</text>
+  <text x="538" y="315" fill="#94a3b8" font-size="8.5" text-anchor="middle">先升级到 Pro / Max 才能用</text>
+  <text x="385" y="294" fill="#fb7185" font-size="9" text-anchor="middle">否</text>
+
+  <!-- 是 → 装 Git 重启 (amber 支路) -->
+  <rect x="438" y="480" width="200" height="58" rx="6" fill="#0f172a"/>
+  <rect x="438" y="480" width="200" height="58" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="538" y="503" fill="white" font-size="11" font-weight="600" text-anchor="middle">先装 Git for Windows</text>
+  <text x="538" y="520" fill="#94a3b8" font-size="8.5" text-anchor="middle">装完务必重启 app，否则读不到</text>
+  <text x="538" y="533" fill="#fbbf24" font-size="8.5" text-anchor="middle">(部分库还需 Git LFS)</text>
+  <text x="385" y="500" fill="#fbbf24" font-size="9" text-anchor="middle">是</text>
+
+  <!-- ===== Side note: Linux ===== -->
+  <rect x="438" y="588" width="200" height="60" rx="6" fill="#0f172a"/>
+  <rect x="438" y="588" width="200" height="60" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="538" y="613" fill="#94a3b8" font-size="11" font-weight="600" text-anchor="middle">Linux 没有桌面 app</text>
+  <text x="538" y="631" fill="#94a3b8" font-size="9" text-anchor="middle">官方不提供，直接用 CLI</text>
+</svg>

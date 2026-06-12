@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-slate" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#94a3b8"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">Skill 怎么被喊起来：从你说话到照「菜谱」干活</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">Claude 拿你的话比对每个 skill 的 description，命中就加载那份「菜谱」照着做</text>
+
+  <!-- ====================== 主路径竖向流程，cx = 360 ====================== -->
+
+  <!-- 主箭头：① → ② -->
+  <line x1="360" y1="165" x2="360" y2="208" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <!-- 主箭头：② → ③（决策） -->
+  <line x1="360" y1="278" x2="360" y2="318" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <!-- 命中：③ → ④ -->
+  <line x1="360" y1="408" x2="360" y2="450" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+  <!-- 命中：④ → ⑤ -->
+  <line x1="360" y1="520" x2="360" y2="562" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+  <!-- 没命中分支：③ 右出 → 兜底框 -->
+  <path d="M 460 363 L 700 363 L 700 460" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="7,4" marker-end="url(#arrow-slate)"/>
+
+  <!-- 分支标签 -->
+  <text x="372" y="432" fill="#34d399" font-size="9" font-weight="600">命中</text>
+  <text x="512" y="354" fill="#94a3b8" font-size="9" font-weight="600">没命中</text>
+
+  <!-- ① 你提需求（输入，平行四边形） -->
+  <polygon points="180,105 540,105 522,165 162,165" fill="#0f172a"/>
+  <polygon points="180,105 540,105 522,165 162,165" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="351" y="131" fill="white" font-size="12" font-weight="600" text-anchor="middle">你用大白话提需求</text>
+  <text x="351" y="150" fill="#94a3b8" font-size="9" text-anchor="middle">比如「帮我画张架构图」</text>
+
+  <!-- ② Claude 比对 description（处理） -->
+  <rect x="170" y="208" width="380" height="70" rx="6" fill="#0f172a"/>
+  <rect x="170" y="208" width="380" height="70" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="360" y="236" fill="white" font-size="12" font-weight="600" text-anchor="middle">Claude 拿你的话比对每个 skill</text>
+  <text x="360" y="256" fill="#94a3b8" font-size="9" text-anchor="middle">只看每个 skill 的 description（招牌简介）</text>
+
+  <!-- ③ 决策菱形：哪个 description 最对得上？ -->
+  <g transform="translate(360,363)">
+    <polygon points="0,-45 100,0 0,45 -100,0" fill="#0f172a"/>
+    <polygon points="0,-45 100,0 0,45 -100,0" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.8"/>
+    <text x="0" y="-4" fill="white" font-size="11" font-weight="600" text-anchor="middle">哪个 description</text>
+    <text x="0" y="14" fill="#fbbf24" font-size="11" font-weight="600" text-anchor="middle">最对得上？</text>
+  </g>
+
+  <!-- ④ 加载 SKILL.md 正文（处理，绿色 happy path） -->
+  <rect x="170" y="450" width="380" height="70" rx="6" fill="#0f172a"/>
+  <rect x="170" y="450" width="380" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="360" y="478" fill="white" font-size="12" font-weight="600" text-anchor="middle">加载那份 SKILL.md 正文</text>
+  <text x="360" y="498" fill="#94a3b8" font-size="9" text-anchor="middle">这才读到「菜谱」的详细步骤</text>
+
+  <!-- ⑤ 照步骤干活并产出（结束，圆角大半径） -->
+  <rect x="170" y="562" width="380" height="64" rx="28" fill="#0f172a"/>
+  <rect x="170" y="562" width="380" height="64" rx="28" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.8"/>
+  <text x="360" y="589" fill="white" font-size="12" font-weight="600" text-anchor="middle">Claude 照步骤干活，交出结果</text>
+  <text x="360" y="608" fill="#cbd5e1" font-size="9" text-anchor="middle">一张架构图 / 一份产物，按菜谱来</text>
+
+  <!-- ⑥ 没命中兜底框（右侧，neutral 灰） -->
+  <rect x="540" y="460" width="380" height="98" rx="6" fill="#0f172a"/>
+  <rect x="540" y="460" width="380" height="98" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="730" y="488" fill="white" font-size="12" font-weight="600" text-anchor="middle">走普通方式回答</text>
+  <text x="730" y="510" fill="#cbd5e1" font-size="9" text-anchor="middle">没有哪份 description 对得上，就不加载菜谱</text>
+  <text x="730" y="532" fill="#fbbf24" font-size="9" text-anchor="middle">想强制用？ /名字 点名那份 skill 兜底</text>
+
+  <!-- 底部一句话 -->
+  <text x="26" y="668" fill="#64748b" font-size="9">关键：description 写得越准，越容易被「命中」——这就是为什么一份好 skill 的简介得把「什么时候该用我」说清楚。</text>
+</svg>

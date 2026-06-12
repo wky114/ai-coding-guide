@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#fbbf24"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">.claude 放了什么</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">项目级跟着项目走，用户级跟着你走</text>
+
+  <!-- ============ 中间：覆盖关系箭头（先画，被面板盖住边缘）============ -->
+  <line x1="630" y1="300" x2="276" y2="300" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-amber)"/>
+  <rect x="372" y="282" width="160" height="36" rx="6" fill="#0f172a"/>
+  <rect x="372" y="282" width="160" height="36" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.3"/>
+  <text x="452" y="299" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">同名配置</text>
+  <text x="452" y="312" fill="#fde68a" font-size="9" text-anchor="middle">项目级覆盖用户级</text>
+
+  <!-- ============ 左：项目级 ./.claude/（cyan）============ -->
+  <rect x="40" y="86" width="320" height="408" rx="10" fill="#0f172a"/>
+  <rect x="40" y="86" width="320" height="408" rx="10" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <!-- 面板标题 -->
+  <text x="60" y="114" fill="white" font-size="13" font-weight="700">项目级　./.claude/</text>
+  <text x="60" y="131" fill="#22d3ee" font-size="9">放在仓库里，跟着项目走、跟着团队走</text>
+  <line x1="56" y1="142" x2="344" y2="142" stroke="#22d3ee" stroke-width="0.6" stroke-opacity="0.5"/>
+
+  <!-- 条目 1：CLAUDE.md -->
+  <text x="64" y="170" fill="#cbd5e1" font-size="11">├─ CLAUDE.md</text>
+  <text x="74" y="184" fill="#64748b" font-size="9">项目说明 / 团队约定</text>
+  <rect x="266" y="158" width="74" height="18" rx="9" fill="#0f172a"/>
+  <rect x="266" y="158" width="74" height="18" rx="9" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="303" y="171" fill="#34d399" font-size="9" text-anchor="middle">✓ 进 git</text>
+
+  <!-- 条目 2：settings.json -->
+  <text x="64" y="218" fill="#cbd5e1" font-size="11">├─ settings.json</text>
+  <text x="74" y="232" fill="#64748b" font-size="9">项目共享设置（权限 / 钩子）</text>
+  <rect x="266" y="206" width="74" height="18" rx="9" fill="#0f172a"/>
+  <rect x="266" y="206" width="74" height="18" rx="9" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="303" y="219" fill="#34d399" font-size="9" text-anchor="middle">✓ 进 git</text>
+
+  <!-- 条目 3：settings.local.json -->
+  <text x="64" y="266" fill="#cbd5e1" font-size="11">├─ settings.local.json</text>
+  <text x="74" y="280" fill="#64748b" font-size="9">你的个人覆盖，不该提交</text>
+  <rect x="252" y="254" width="88" height="18" rx="9" fill="#0f172a"/>
+  <rect x="252" y="254" width="88" height="18" rx="9" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1"/>
+  <text x="296" y="267" fill="#fb7185" font-size="9" text-anchor="middle">✗ 不进 git</text>
+
+  <!-- 条目 4：commands/ -->
+  <text x="64" y="314" fill="#cbd5e1" font-size="11">├─ commands/</text>
+  <text x="74" y="328" fill="#64748b" font-size="9">项目自定义斜杠命令</text>
+  <rect x="266" y="302" width="74" height="18" rx="9" fill="#0f172a"/>
+  <rect x="266" y="302" width="74" height="18" rx="9" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="303" y="315" fill="#34d399" font-size="9" text-anchor="middle">✓ 进 git</text>
+
+  <!-- 条目 5：skills/ -->
+  <text x="64" y="362" fill="#cbd5e1" font-size="11">├─ skills/</text>
+  <text x="74" y="376" fill="#64748b" font-size="9">项目专属技能</text>
+  <rect x="266" y="350" width="74" height="18" rx="9" fill="#0f172a"/>
+  <rect x="266" y="350" width="74" height="18" rx="9" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="303" y="363" fill="#34d399" font-size="9" text-anchor="middle">✓ 进 git</text>
+
+  <!-- 条目 6：agents/ -->
+  <text x="64" y="410" fill="#cbd5e1" font-size="11">└─ agents/</text>
+  <text x="74" y="424" fill="#64748b" font-size="9">项目子代理（subagent）</text>
+  <rect x="266" y="398" width="74" height="18" rx="9" fill="#0f172a"/>
+  <rect x="266" y="398" width="74" height="18" rx="9" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="303" y="411" fill="#34d399" font-size="9" text-anchor="middle">✓ 进 git</text>
+
+  <!-- 左面板底注 -->
+  <line x1="56" y1="446" x2="344" y2="446" stroke="#22d3ee" stroke-width="0.6" stroke-opacity="0.5"/>
+  <text x="60" y="470" fill="#94a3b8" font-size="9">提交后队友 clone 下来就有，全队一套规矩</text>
+
+  <!-- ============ 右：用户级 ~/.claude/（violet）============ -->
+  <rect x="540" y="86" width="320" height="408" rx="10" fill="#0f172a"/>
+  <rect x="540" y="86" width="320" height="408" rx="10" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <!-- 面板标题 -->
+  <text x="560" y="114" fill="white" font-size="13" font-weight="700">用户级　~/.claude/</text>
+  <text x="560" y="131" fill="#a78bfa" font-size="9">放在你的家目录，跨所有项目跟着你这个人</text>
+  <line x1="556" y1="142" x2="844" y2="142" stroke="#a78bfa" stroke-width="0.6" stroke-opacity="0.5"/>
+
+  <!-- 条目 1：CLAUDE.md -->
+  <text x="564" y="178" fill="#cbd5e1" font-size="11">├─ CLAUDE.md</text>
+  <text x="574" y="192" fill="#64748b" font-size="9">你的全局个人偏好</text>
+
+  <!-- 条目 2：settings.json -->
+  <text x="564" y="234" fill="#cbd5e1" font-size="11">├─ settings.json</text>
+  <text x="574" y="248" fill="#64748b" font-size="9">全局设置，所有项目兜底</text>
+
+  <!-- 条目 3：~/.claude.json -->
+  <text x="564" y="290" fill="#cbd5e1" font-size="11">├─ ~/.claude.json</text>
+  <text x="574" y="304" fill="#64748b" font-size="9">账号 / 登录态等运行时数据</text>
+
+  <!-- 条目 4：projects/ 自动记忆 -->
+  <text x="564" y="346" fill="#cbd5e1" font-size="11">└─ projects/</text>
+  <rect x="700" y="334" width="92" height="18" rx="9" fill="#0f172a"/>
+  <rect x="700" y="334" width="92" height="18" rx="9" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1"/>
+  <text x="746" y="347" fill="#c4b5fd" font-size="9" text-anchor="middle">自动记忆</text>
+  <text x="574" y="360" fill="#64748b" font-size="9">每个项目的会话历史，Claude 自动写</text>
+
+  <!-- 右面板底注 -->
+  <line x1="556" y1="446" x2="844" y2="446" stroke="#a78bfa" stroke-width="0.6" stroke-opacity="0.5"/>
+  <text x="560" y="470" fill="#94a3b8" font-size="9">换项目、换仓库都在，但只属于你这台机器</text>
+
+  <!-- 图例 -->
+  <rect x="40" y="506" width="14" height="14" rx="3" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="60" y="517" fill="#94a3b8" font-size="9">✓ 进 git＝该提交、随项目走</text>
+  <rect x="296" y="506" width="14" height="14" rx="3" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1"/>
+  <text x="316" y="517" fill="#94a3b8" font-size="9">✗ 不进 git＝个人本地，加进 .gitignore</text>
+</svg>

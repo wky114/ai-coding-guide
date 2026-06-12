@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 11 4, 0 8" fill="#a78bfa"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">Agent teams 团队结构：工头分活，队友并行干</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">负责人创建团队 · 队友各包一块独立干 · 共享任务板协调进度 · 信箱直连互通</text>
+
+  <!-- ============================================================ -->
+  <!-- 连接线（先画，被盒子盖住）                                    -->
+  <!-- ============================================================ -->
+
+  <!-- 你 → Team lead -->
+  <path d="M 560 152 L 560 188" fill="none" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Team lead → 共享任务板（分活）-->
+  <path d="M 560 276 L 560 312" fill="none" stroke="#fb923c" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- 共享任务板 → 三个队友（各认领一块）-->
+  <path d="M 240 392 L 240 452" fill="none" stroke="#fb923c" stroke-width="1.8" stroke-opacity="0.85" marker-end="url(#arrow-orange)"/>
+  <path d="M 560 392 L 560 452" fill="none" stroke="#fb923c" stroke-width="1.8" stroke-opacity="0.85" marker-end="url(#arrow-orange)"/>
+  <path d="M 880 392 L 880 452" fill="none" stroke="#fb923c" stroke-width="1.8" stroke-opacity="0.85" marker-end="url(#arrow-orange)"/>
+
+  <!-- 队友 A 信箱 → 队友 B（直连）-->
+  <path d="M 340 620 L 460 620" fill="none" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#arrow-violet)"/>
+  <!-- 队友 B 信箱 → 队友 C（直连）-->
+  <path d="M 660 620 L 780 620" fill="none" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#arrow-violet)"/>
+
+  <!-- 队友消息自动冒泡回 leader（从队友盒子沿外侧空白绕回 leader 两侧，全程可见）-->
+  <path d="M 120 500 L 90 500 L 90 232 L 406 232" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arrow-emerald)"/>
+  <path d="M 1000 500 L 1030 500 L 1030 232 L 714 232" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arrow-emerald)"/>
+
+  <!-- ============================================================ -->
+  <!-- 节点                                                          -->
+  <!-- ============================================================ -->
+
+  <!-- 你（用户 / 工头视角）-->
+  <rect x="430" y="92" width="260" height="60" rx="8" fill="#0f172a"/>
+  <rect x="430" y="92" width="260" height="60" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="560" y="118" fill="white" font-size="12" font-weight="600" text-anchor="middle">你（工头视角）</text>
+  <text x="560" y="136" fill="#94a3b8" font-size="9" text-anchor="middle">提需求，定方向，不亲自下场</text>
+
+  <!-- Team lead 负责人 -->
+  <rect x="410" y="188" width="300" height="88" rx="8" fill="#0f172a"/>
+  <rect x="410" y="188" width="300" height="88" rx="8" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.8"/>
+  <text x="560" y="214" fill="white" font-size="13" font-weight="700" text-anchor="middle">Team lead 负责人</text>
+  <text x="560" y="234" fill="#cbd5e1" font-size="9.5" text-anchor="middle">创建团队 · 拆活分派 · 统筹协调</text>
+  <text x="560" y="252" fill="#fbbf24" font-size="9.5" text-anchor="middle">固定不可换：换掉它，团队就散了</text>
+  <text x="560" y="268" fill="#94a3b8" font-size="9" text-anchor="middle">队友消息会自动冒泡到这里</text>
+
+  <!-- 共享任务列表（任务板，连接器配色）-->
+  <rect x="160" y="312" width="800" height="80" rx="10" fill="#0f172a"/>
+  <rect x="160" y="312" width="800" height="80" rx="10" fill="rgba(251,146,60,0.16)" stroke="#fb923c" stroke-width="1.8"/>
+  <text x="560" y="336" fill="#fb923c" font-size="12" font-weight="700" text-anchor="middle">共享任务列表（团队的任务板）</text>
+  <!-- 三个状态小标签 -->
+  <rect x="200" y="350" width="150" height="28" rx="6" fill="rgba(30,41,59,0.6)" stroke="#94a3b8" stroke-width="1"/>
+  <text x="275" y="368" fill="#cbd5e1" font-size="9.5" text-anchor="middle">待处理</text>
+  <rect x="485" y="350" width="150" height="28" rx="6" fill="rgba(59,130,246,0.25)" stroke="#60a5fa" stroke-width="1"/>
+  <text x="560" y="368" fill="#cbd5e1" font-size="9.5" text-anchor="middle">进行中</text>
+  <rect x="770" y="350" width="150" height="28" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+  <text x="845" y="368" fill="#cbd5e1" font-size="9.5" text-anchor="middle">已完成</text>
+  <!-- 任务板说明放右上角内 -->
+  <text x="380" y="368" fill="#94a3b8" font-size="8.5" text-anchor="middle">可标依赖</text>
+  <text x="690" y="368" fill="#94a3b8" font-size="8.5" text-anchor="middle">自我认领</text>
+
+  <!-- ====== 三个队友（独立上下文 · 独立会话），下半区 ====== -->
+  <!-- 用一条虚线边界把「并行干活的队友」框起来 -->
+  <rect x="60" y="430" width="1000" height="216" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="76" y="450" fill="#34d399" font-size="10" font-weight="600">队友们：各自独立上下文 / 独立会话，并行开工</text>
+
+  <!-- 队友 A -->
+  <rect x="120" y="466" width="220" height="98" rx="8" fill="#0f172a"/>
+  <rect x="120" y="466" width="220" height="98" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="230" y="494" fill="white" font-size="12" font-weight="700" text-anchor="middle">队友 A</text>
+  <text x="230" y="514" fill="#cbd5e1" font-size="9" text-anchor="middle">独立上下文 · 独立会话</text>
+  <text x="230" y="532" fill="#94a3b8" font-size="9" text-anchor="middle">认领一块任务，闷头干</text>
+  <text x="230" y="550" fill="#94a3b8" font-size="9" text-anchor="middle">不打扰别人</text>
+
+  <!-- 队友 B -->
+  <rect x="450" y="466" width="220" height="98" rx="8" fill="#0f172a"/>
+  <rect x="450" y="466" width="220" height="98" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="560" y="494" fill="white" font-size="12" font-weight="700" text-anchor="middle">队友 B</text>
+  <text x="560" y="514" fill="#cbd5e1" font-size="9" text-anchor="middle">独立上下文 · 独立会话</text>
+  <text x="560" y="532" fill="#94a3b8" font-size="9" text-anchor="middle">认领一块任务，闷头干</text>
+  <text x="560" y="550" fill="#94a3b8" font-size="9" text-anchor="middle">和 A / C 并行</text>
+
+  <!-- 队友 C -->
+  <rect x="780" y="466" width="220" height="98" rx="8" fill="#0f172a"/>
+  <rect x="780" y="466" width="220" height="98" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="890" y="494" fill="white" font-size="12" font-weight="700" text-anchor="middle">队友 C</text>
+  <text x="890" y="514" fill="#cbd5e1" font-size="9" text-anchor="middle">独立上下文 · 独立会话</text>
+  <text x="890" y="532" fill="#94a3b8" font-size="9" text-anchor="middle">认领一块任务，闷头干</text>
+  <text x="890" y="550" fill="#94a3b8" font-size="9" text-anchor="middle">互不串台</text>
+
+  <!-- ====== Mailbox 信箱：横在三个队友下方，紫色直连 ====== -->
+  <rect x="220" y="606" width="120" height="28" rx="6" fill="#0f172a"/>
+  <rect x="220" y="606" width="120" height="28" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="280" y="624" fill="#ddd6fe" font-size="9.5" font-weight="600" text-anchor="middle">A 信箱</text>
+
+  <rect x="500" y="606" width="120" height="28" rx="6" fill="#0f172a"/>
+  <rect x="500" y="606" width="120" height="28" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="560" y="624" fill="#ddd6fe" font-size="9.5" font-weight="600" text-anchor="middle">B 信箱</text>
+
+  <rect x="780" y="606" width="120" height="28" rx="6" fill="#0f172a"/>
+  <rect x="780" y="606" width="120" height="28" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="840" y="624" fill="#ddd6fe" font-size="9.5" font-weight="600" text-anchor="middle">C 信箱</text>
+
+  <!-- 信箱下方一句说明 -->
+  <text x="560" y="654" fill="#a78bfa" font-size="9" text-anchor="middle">Mailbox 信箱：队友之间不经过 leader，直接互发消息</text>
+
+  <!-- ============================================================ -->
+  <!-- 关系标注（贴在箭头旁）                                        -->
+  <!-- ============================================================ -->
+  <!-- 分活标注（贴橙色下行箭头旁）-->
+  <rect x="572" y="288" width="92" height="20" rx="10" fill="#0f172a"/>
+  <text x="618" y="302" fill="#fb923c" font-size="9.5" font-weight="600" text-anchor="middle">拆活分派 ↓</text>
+
+  <!-- 冒泡回线标注（贴左侧绿色竖线）-->
+  <text x="98" y="418" fill="#34d399" font-size="9" font-weight="600" transform="rotate(-90 98 418)" text-anchor="middle">消息自动冒泡回 leader</text>
+
+  <!-- ============================================================ -->
+  <!-- 右上角图例                                                    -->
+  <!-- ============================================================ -->
+  <g transform="translate(726, 92)">
+    <rect x="0" y="0" width="364" height="76" rx="8" fill="rgba(15,23,42,0.85)" stroke="#1e293b" stroke-width="1"/>
+    <line x1="14" y1="20" x2="40" y2="20" stroke="#fb923c" stroke-width="2" marker-end="url(#arrow-orange)"/>
+    <text x="48" y="23" fill="#94a3b8" font-size="9">leader 拆活 / 队友从任务板认领</text>
+    <line x1="14" y1="40" x2="40" y2="40" stroke="#34d399" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arrow-emerald)"/>
+    <text x="48" y="43" fill="#94a3b8" font-size="9">队友消息自动冒泡回 leader</text>
+    <line x1="14" y1="60" x2="40" y2="60" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#arrow-violet)"/>
+    <text x="48" y="63" fill="#94a3b8" font-size="9">信箱直连：队友之间点对点互发</text>
+  </g>
+
+  <!-- 底部一句话 -->
+  <text x="60" y="688" fill="#64748b" font-size="9">一句话：leader 拆活上任务板，队友各认一块并行干，进度靠任务板对齐，急事走信箱直连——leader 固定不可换。</text>
+</svg>

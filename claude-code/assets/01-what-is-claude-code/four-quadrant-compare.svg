@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 560">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- 标题 -->
+  <text x="26" y="36" fill="white" font-size="16" font-weight="700">四个工具，摆进两个轴</text>
+  <text x="26" y="55" fill="#94a3b8" font-size="10">横轴：自动读懂项目  ·  纵轴：能否直接改文件</text>
+
+  <!-- 象限区域底色（先画，垫在最底层）：右上高亮 -->
+  <rect x="320" y="92" width="248" height="178" fill="rgba(59,130,246,0.07)"/>
+
+  <!-- 坐标轴 -->
+  <!-- Y 轴（竖）：底部 470 → 顶部 92 -->
+  <line x1="320" y1="478" x2="320" y2="84" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- X 轴（横）：左 72 → 右 568 -->
+  <line x1="64" y1="270" x2="576" y2="270" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 轴标签 -->
+  <text x="332" y="80" fill="#cbd5e1" font-size="10" font-weight="600">能直接改文件 ↑</text>
+  <text x="332" y="468" fill="#64748b" font-size="9">只给建议，你自己改</text>
+  <text x="572" y="262" fill="#cbd5e1" font-size="10" font-weight="600" text-anchor="end">自动读懂整个项目 →</text>
+  <text x="72" y="290" fill="#64748b" font-size="9">看不到，得手动粘</text>
+
+  <!-- 象限内标注（淡） -->
+  <text x="440" y="110" fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" opacity="0.85">既懂全局 · 又能动手</text>
+
+  <!-- ChatGPT：左下（手动粘 + 只给建议） -->
+  <rect x="118" y="356" width="150" height="58" rx="6" fill="#0f172a"/>
+  <rect x="118" y="356" width="150" height="58" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="193" y="381" fill="white" font-size="12" font-weight="600" text-anchor="middle">ChatGPT</text>
+  <text x="193" y="399" fill="#94a3b8" font-size="9" text-anchor="middle">顾问 · 你问它答</text>
+
+  <!-- Copilot / Cursor：中下偏右（懂局部 + 主要补全） -->
+  <rect x="338" y="320" width="158" height="58" rx="6" fill="#0f172a"/>
+  <rect x="338" y="320" width="158" height="58" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="417" y="345" fill="white" font-size="12" font-weight="600" text-anchor="middle">Copilot / Cursor</text>
+  <text x="417" y="363" fill="#94a3b8" font-size="9" text-anchor="middle">智能输入法 · 懂局部、补全</text>
+
+  <!-- Claude Code：右上（自动读项目 + 能改文件）独一档 -->
+  <rect x="372" y="150" width="172" height="68" rx="6" fill="#0f172a"/>
+  <rect x="372" y="150" width="172" height="68" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="2"/>
+  <text x="458" y="178" fill="white" font-size="13" font-weight="700" text-anchor="middle">Claude Code</text>
+  <text x="458" y="197" fill="#94a3b8" font-size="9" text-anchor="middle">能动手的搭档</text>
+  <text x="458" y="210" fill="#22d3ee" font-size="9" text-anchor="middle">读全局 + 直接改 + 跑命令</text>
+
+  <!-- 「独一档」徽标 -->
+  <rect x="372" y="128" width="64" height="18" rx="9" fill="#0f172a"/>
+  <rect x="372" y="128" width="64" height="18" rx="9" fill="rgba(8,51,68,0.6)" stroke="#22d3ee" stroke-width="1"/>
+  <text x="404" y="140" fill="#22d3ee" font-size="9" font-weight="700" text-anchor="middle">独一档</text>
+
+  <!-- 图例（底部，所有内容之外） -->
+  <text x="26" y="520" fill="#64748b" font-size="9">越往右上角 = 越能「读懂全局 + 直接动手」；只有 Claude Code 稳稳站在右上角。</text>
+</svg>
